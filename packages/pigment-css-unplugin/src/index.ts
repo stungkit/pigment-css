@@ -8,7 +8,7 @@ import {
   transform,
   createFileReporter,
 } from '@wyw-in-js/transform';
-import { slugify } from '@wyw-in-js/shared';
+import { slugify, type TagResolverMeta } from '@wyw-in-js/shared';
 import {
   UnpluginFactoryOutput,
   WebpackPluginInstance,
@@ -237,8 +237,8 @@ export const plugin = createUnplugin<PigmentOptions, true>((options) => {
               }
               return context;
             },
-            tagResolver(source: string, tag: string) {
-              const tagResult = tagResolver?.(source, tag);
+            tagResolver(source: string, tag: string, tagMeta: TagResolverMeta) {
+              const tagResult = tagResolver?.(source, tag, tagMeta);
               if (tagResult) {
                 return tagResult;
               }
