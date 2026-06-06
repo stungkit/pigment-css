@@ -244,7 +244,7 @@ jobs:
           command: git add -A && git diff --exit-code --staged
   test_types:
     <<: *default-job
-    resource_class: 'medium+'
+    resource_class: medium+
     steps:
       - checkout
       - install_js
@@ -255,7 +255,7 @@ jobs:
             NODE_OPTIONS: --max-old-space-size=3072
   test_types_next:
     <<: *default-job
-    resource_class: 'medium+'
+    resource_class: medium+
     steps:
       - checkout
       - install_js
@@ -282,7 +282,7 @@ jobs:
             - typescript-declaration-files-next
   # test_browser:
   #   <<: *default-job
-  #   resource_class: 'medium+'
+  #   resource_class: medium+
   #   docker:
   #     - image: mcr.microsoft.com/playwright:v1.43.0-focal
   #       environment:
